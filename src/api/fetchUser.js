@@ -1,7 +1,7 @@
 import axiosAPI from "./axiosApi";
 
 export const getUser = async (token) =>{
-    const res = await axiosAPI.get('http://localhost:3000/profile', { headers: { authorization: token } })
+    const res = await axiosAPI.get('/profile', { headers: { Authorization: token } })
     return res.data
 }
 
