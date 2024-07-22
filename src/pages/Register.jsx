@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { registerUser } from '../api/fetchUser';
 
 function Register() {
@@ -27,21 +27,18 @@ function Register() {
   };
 
   return (
-    <main>
-      <h1>Registrarse</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Correo electrónico: <input type='email' name='email' required />
-        </label>
-        <br />
-        <label>
-          Contraseña: <input type='password' name='pass' required />
-        </label>
-        <br />
-        <button type='submit'>Registrarse</button>
-      </form>
-      {error && <p>{error}</p>}
-      <p>¿Ya tienes una cuenta? <a href='/'>Inicia sesión</a></p>
+    <main className='page'>
+      <div className='container'>
+        <h2>Registrarse</h2>
+        <form className='formu' onSubmit={handleSubmit}>
+          <input type='email' name='email' required placeholder='Correo'/>
+          <input type='password' name='pass' required placeholder='Contraseña'/>
+          <button type='submit'>Registrarse</button>
+        </form>
+        {error && <p>{error}</p>}
+        <p>¿Ya tienes una cuenta? Inicia sesión <Link className='enlace' to='/'>aquí</Link></p>
+      </div>
+
     </main>
   );
 }

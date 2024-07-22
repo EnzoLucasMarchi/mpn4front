@@ -2,6 +2,7 @@ import { useMutation } from '@tanstack/react-query';
 import { useNavigate, Link } from 'react-router-dom';
 import { loginUser } from '../api/fetchUser';
 import { useEffect } from 'react';
+import './Forms.css'
 
 function Login() {
   const navigate = useNavigate();
@@ -34,20 +35,17 @@ function Login() {
   }, [loginMutation.isSuccess, navigate]);
 
   return (
-    <main>
-      <h1>Iniciar sesión</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Email: <input type='email' name='email' required />
-        </label>
-        <br />
-        <label>
-          Contraseña: <input type='password' name='pass' required />
-        </label>
-        <br />
+    <main className='page'>
+    <div className='container'>
+    <h2>Iniciar sesión</h2>
+      <form className='formu' onSubmit={handleSubmit}>
+        <input type='email' name='email' required placeholder='Correo'/>
+        <input type='password' name='pass' required placeholder='Contraseña'/>
         <button type='submit'>Ingresar</button>
       </form>
-      <p>¿No tienes una cuenta? <Link to='/register'>Regístrate</Link></p>
+      <p>¿No tienes una cuenta? Regístrate <Link className='enlace' to='/register'>aquí</Link></p>
+    </div>
+
     </main>
   );
 }
